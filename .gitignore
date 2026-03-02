@@ -1,0 +1,50 @@
+# =========================
+# Build directories
+# =========================
+build/
+cmake-build-*/
+out/
+
+# =========================
+# CMake files
+# =========================
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+compile_commands.json
+
+# =========================
+# Compiled objects
+# =========================
+*.o
+*.obj
+*.lo
+*.slo
+*.a
+*.lib
+*.so
+*.dll
+*.dylib
+*.exe
+
+# =========================
+# IDE
+# =========================
+.vscode/
+.idea/
+*.code-workspace
+
+# =========================
+# OS files
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# Testing / coverage
+# =========================
+*.gcda
+*.gcno
+*.gcov
+coverage/
