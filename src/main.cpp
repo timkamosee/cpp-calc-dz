@@ -214,9 +214,9 @@ calc parcer(int argc, char** argv){
                 break;
         }
     }
-    if ((has_a == 1 && has_b == 1 && has_o == 1 && has_h == 0) || 
-        (has_a == 1 && has_b == 0 && has_o == 0 && has_h == 0 && (s1.operation == '!')) || 
-        (has_a == 0 && has_b == 0 && has_o == 0 && has_h == 1)){
+    if (!(has_a == 1 && has_b == 1 && has_o == 1 && has_h == 0) || 
+        !(has_a == 1 && has_b == 0 && has_o == 0 && has_h == 0 && (s1.operation == '!')) || 
+        !(has_a == 0 && has_b == 0 && has_o == 0 && has_h == 1)){
             s1.err = 1;
         }
     return s1;
