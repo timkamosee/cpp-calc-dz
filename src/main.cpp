@@ -4,16 +4,21 @@
 #include <limits.h> 
 #include <getopt.h>
 #include <iomanip>
-#define CALC_STRUCT_DEFINED
+
 #include "mosee_math.hpp"
+
+#ifndef CALC_STRUCT_DEFINED
+#define CALC_STRUCT_DEFINED
 
 struct calc {
     long long a;
     long long b;
     char operation;
-    int err = 0;      //1 - incorrect input      4 - переполнение после выисления 
-    long long result; //2 - Переполнение типа
+    int err = 0;      //1 - incorrect input      4 - переполнение после вычсления 
+    long long result; //2 - Переполнение типа    5 - вызов справки
 };                    //3 - деление на 0
+
+#endif                //3 - деление на 0
 
 int calculate(calc* str);
 int printres(calc* str);
@@ -49,38 +54,63 @@ void print_struct(calc* str){//удалить
 
 int printres(calc* str){
     if ( str->err == 1) {
-        std::cout << "Некорректный ввод\n";
+        printf("Некорректный ввод\n");
     } else if ( str->err == 2) {
-        std::cout << "Переполнение ввода\n";
+        printf("Переполнение ввода\n");
     } else if ( str->err == 3) {
-        std::cout << "Деление на 0 запрещено\n";
+        printf("Деление на 0 запрещено\n");
     } else if (str->err == 4) {
-        std::cout << "Переполнение после вычисления\n";
+        printf("Переполнение после вычисления\n");
     } else if (str->err == 5) {
-        std::cout << "Calculator — command line utility
+        printf(
+"Calculator — command line utility\n"
+"\n"
+"Usage:\n"
+"  calculator -a <number> -b <number> -o <operation>\n"
+"  calculator -h\n"
+"\n"
+"Options:\n"
+"  -a <number>        First integer value\n"
+"  -b <number>        Second integer value\n"
+"  -o <operation>     Operation to perform\n"
+"  -h                 Show this help message\n"
+"\n"
+"Available operations:\n"
+"  add        Addition\n"
+"  sub        Subtraction\n"
+"  mul        Multiplication\n"
+"  div        Division\n"
+"  pow        Power (iterative)\n"
+"  fact       Factorial (recursive, uses -a only)\n"
+"\n"
+"Notes:\n"
+"  Division by zero is checked.\n"
+"  All operations check for overflow.\n"
+"  Factorial ignores -b parameter.\n"
+);
 
-Usage:
-  calculator -a <number> -b <number> -o <operation>
-  calculator -h
+// Usage:
+//   calculator -a <number> -b <number> -o <operation>
+//   calculator -h
 
-Options:
-  -a <number>        First integer value
-  -b <number>        Second integer value
-  -o <operation>     Operation to perform
-  -h                 Show this help message
+// Options:
+//   -a <number>        First integer value
+//   -b <number>        Second integer value
+//   -o <operation>     Operation to perform
+//   -h                 Show this help message
 
-Available operations:
-  add        Addition
-  sub        Subtraction
-  mul        Multiplication
-  div        Division
-  pow        Power (iterative)
-  fact       Factorial (recursive, uses -a only)
+// Available operations:
+//   add        Addition
+//   sub        Subtraction
+//   mul        Multiplication
+//   div        Division
+//   pow        Power (iterative)
+//   fact       Factorial (recursive, uses -a only)
 
-Notes:
-  • Division by zero is checked.
-  • All operations check for overflow.
-  • Factorial ignores -b parameter.\n";
+// Notes:
+//   • Division by zero is checked.
+//   • All operations check for overflow.
+//   • Factorial ignores -b parameter.\n";
     } else {
         std::cout << std::fixed << str->result << "\n";
     }
