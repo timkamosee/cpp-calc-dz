@@ -154,6 +154,9 @@ int calculate(calc* str){
 
 
 int check(calc* str){
+    if(str->operation == '/' && str->a == LLONG_MIN && str->b == -1){
+        str->err = 4;
+    }
     if (errno == ERANGE){
         str->err = 2;//Переполнение типа
     }
