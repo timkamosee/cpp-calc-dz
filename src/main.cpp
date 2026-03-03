@@ -159,7 +159,7 @@ int check(calc* str){
     if(str->operation == '/' && str->a == LLONG_MIN && str->b == -1){
         str->err = 4;
     }
-    if(str->operation == '!' && str->a == -1)str->err = 6;
+    if(str->operation == '!' && str->a < 0 )str->err = 6;
     if (errno == ERANGE){
         str->err = 2;//Переполнение типа
     }
