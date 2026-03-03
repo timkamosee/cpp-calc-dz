@@ -13,7 +13,7 @@
 struct calc {
     long long a;
     long long b;
-    char operation;
+    char operation = 0;
     int err = 0;      //1 - incorrect input      4 - переполнение после вычсления 
     long long result; //2 - Переполнение типа    5 - вызов справки
 };                    //3 - деление на 0
@@ -215,7 +215,7 @@ calc parcer(int argc, char** argv){
         }
     }
     if ((has_a == 1 && has_b == 1 && has_o == 1 && has_h == 0) || 
-        (has_a == 1 && has_b == 0 && has_o == 0 && has_h == 0 && s1.operation == '!') || 
+        (has_a == 1 && has_b == 0 && has_o == 0 && has_h == 0 && (s1.operation == '!')) || 
         (has_a == 0 && has_b == 0 && has_o == 0 && has_h == 1)){
             s1.err = 1;
         }
