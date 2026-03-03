@@ -59,6 +59,8 @@ int printres(calc* str){
         printf("Переполнение ввода\n");
     } else if ( str->err == 3) {
         printf("Деление на 0 запрещено\n");
+    } else if ( str->err == 6) {
+        printf("Нельзя найти факториал отрицательного числа\n");
     } else if (str->err == 4) {
         printf("Переполнение после вычисления\n");
     } else if (str->err == 5) {
@@ -157,6 +159,7 @@ int check(calc* str){
     if(str->operation == '/' && str->a == LLONG_MIN && str->b == -1){
         str->err = 4;
     }
+    if(str->operation == '!' && str->a == -1)str->err = 6;
     if (errno == ERANGE){
         str->err = 2;//Переполнение типа
     }
