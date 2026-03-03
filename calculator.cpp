@@ -15,6 +15,7 @@ void print_struct(calc str){//удалить
     std::cout << "a = " << str.a << " b = " << str.b << " op " << str.operation;
 }
 
+int check(calc str);
 int run(int argc, char** argv);
 calc parcer(int argc, char** argv);//эта функция парсит аргументы запуска программы преобразует через to_double() и добовляет из в озвращаемую структуру
 
@@ -30,7 +31,38 @@ int run(int argc, char** argv){
     return 0;
 }
 
+int calculate(calc str){
+    switch (str.operation) {
+        case '+':
+            //code
+            break;
 
+        case '-':
+            //code
+            break;
+
+        case '*':
+            //code
+            break;
+
+        case '/':
+            //code
+            break;
+
+        case '!':
+            //code
+            break;
+
+        case '^':
+            //code
+            break;
+
+        
+        default:
+            //code error
+            break;
+    }
+}
 
 int check(calc str){
     if (errno == ERANGE){
@@ -39,6 +71,9 @@ int check(calc str){
     if (str.operation == '/' && str.b == 0){
         str.err = 3;//3 - деление на 0
     }
+    return 0;
+}
+
 calc parcer(int argc, char** argv){
     int opt;
     calc s1;
