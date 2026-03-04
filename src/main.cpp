@@ -90,29 +90,6 @@ int printres(calc* str){
 "  All operations check for overflow.\n"
 "  Factorial ignores -b parameter.\n"
 );
-
-// Usage:
-//   calculator -a <number> -b <number> -o <operation>
-//   calculator -h
-
-// Options:
-//   -a <number>        First integer value
-//   -b <number>        Second integer value
-//   -o <operation>     Operation to perform
-//   -h                 Show this help message
-
-// Available operations:
-//   add        Addition
-//   sub        Subtraction
-//   mul        Multiplication
-//   div        Division
-//   pow        Power (iterative)
-//   fact       Factorial (recursive, uses -a only)
-
-// Notes:
-//   • Division by zero is checked.
-//   • All operations check for overflow.
-//   • Factorial ignores -b parameter.\n";
     } else {
         std::cout << std::fixed << str->result << "\n";
     }
