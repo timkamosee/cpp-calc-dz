@@ -51,11 +51,6 @@ long long to_ll(char *str)
     return out;
 }
 
-void print_struct(calc *str)
-{ // удалить
-    std::cout << "a = " << str->a << " b = " << str->b << " op " << str->operation;
-}
-
 int printres(calc *str)
 {
     if (str->err == 1)
