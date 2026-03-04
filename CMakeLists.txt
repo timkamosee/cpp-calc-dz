@@ -31,12 +31,19 @@ install(TARGETS calculator
 )
 
 # clang-format target
-find_program(CLANG_FORMAT "clang-format")
+find_program(CLANG_FORMAT clang-format)
 
 if(CLANG_FORMAT)
-    add_custom_target(format
-        COMMAND ${CLANG_FORMAT}
-        -i
-        ${PROJECT_SOURCE_DIR}/src/main.cpp
+
+    file(GLOB_RECURSE ALL_SOURCE_FILES
+        ${PROJECT_SOURCE_DIR}/src/*.cpp
+        ${PROJECT_SOURCE_DIR}/src/*.h
+        ${PROJECT_SOURCE_DIR}/include/*.h
     )
+
+    add_custom_target(format
+        COMMAND ${CLANG_FORMAT} -i ${ALL_SOURCE_FILES}
+    )
+
 endif()
+
