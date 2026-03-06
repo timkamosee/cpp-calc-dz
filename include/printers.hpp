@@ -1,4 +1,4 @@
 #include <iomanip>
-#include "calc.hgitpp"
+#include "calc.hpp"
 
 int printres(calc *str);
