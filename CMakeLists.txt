@@ -21,6 +21,7 @@ FetchContent_MakeAvailable(mathlib)
 add_executable(calculator
     src/main.cpp
     src/parcer.cpp
+    src/printers.cpp
 )
 
 target_include_directories(calculator PRIVATE include)
