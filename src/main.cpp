@@ -174,8 +174,13 @@ calc parcer(int argc, char **argv)
     int has_h = 0;
     static struct option long_options[] = {{"arga", 1, 0, 'a'},
                                            {"argb", 1, 0, 'b'},
-                                           {"operation", 1, 0, 'o'},
                                            {"help", 0, 0, 'h'},
+                                           {"add", 0, 0, 1},
+                                           {"sub", 0, 0, 2},
+                                           {"mul", 0, 0, 3},
+                                           {"div", 0, 0, 4},
+                                           {"pow", 0, 0, 5},
+                                           {"fact", 0, 0, 6},
                                            {0, 0, 0, 0}};
     while ((opt = getopt_long(argc, argv, "a:b:o:h", long_options, &option_index)) != -1 &&
            errno != ERANGE)
@@ -192,16 +197,47 @@ calc parcer(int argc, char **argv)
             has_b++;
             break;
 
-        case 'o':
-            s1.operation = optarg[0];
-            has_o++;
-            break;
-
         case 'h':
 
             s1.err = 5;
             has_h++;
             break;
+
+        case 1:
+
+            s1.operation = '+';
+            has_o++;
+            break;
+
+        case 2:
+
+            s1.operation = '-';
+            has_o++;
+            break;
+
+        case 3:
+
+            s1.operation = '*';
+            has_o++;
+            break;
+
+        case 4:
+
+            s1.operation = '/';
+            has_o++;
+            break;
+
+        case 5:
+
+            s1.operation = '^';
+            has_o++;
+            break;
+
+        case 6:
+
+            s1.operation = '!';
+            has_o++;
+            break;            
 
         case '?':
 
@@ -209,6 +245,7 @@ calc parcer(int argc, char **argv)
             break;
         }
     }
+    std::cout << "{" << has_o << "}";
     if (!((has_a == 1 && has_b == 1 && has_o == 1 && has_h == 0) ||
           (has_a == 1 && has_b == 0 && has_o == 1 && has_h == 0 && (s1.operation == '!')) ||
           (has_a == 0 && has_b == 0 && has_o == 0 && has_h == 1)))
