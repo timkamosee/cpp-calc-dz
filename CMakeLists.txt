@@ -20,7 +20,10 @@ FetchContent_MakeAvailable(mathlib)
 
 add_executable(calculator
     src/main.cpp
+    src/parcer.cpp
 )
+
+target_include_directories(calculator PRIVATE include)
 
 # Если библиотека INTERFACE (правильный вариант)
 target_link_libraries(calculator PRIVATE math_mosee)
