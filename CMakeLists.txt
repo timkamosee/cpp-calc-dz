@@ -23,6 +23,8 @@ add_executable(calculator
     src/parcer.cpp
     src/printers.cpp
     src/check.cpp
+    src/calculate.cpp
+    src/run.cpp
 )
 
 target_include_directories(calculator PRIVATE include)
